@@ -1,0 +1,105 @@
+generator client {
+  provider = "prisma-client-js"
+}
+datasource db {
+  provider = "postgresql"
+  url = env("DATABASE_URL")
+}
+model User {
+  id String @id @default(uuid())
+  email String @unique
+  passwordHash String
+  createdAt DateTime @default(now())
+  sessions Session[]
+  profiles Profile[]
+  jobs TryOnJob[]
+  consents ConsentRecord[]
+}
+model Session {
+  id String @id
+  userId String
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  @@index([userId])
+}
+model Profile {
+  id String @id @default(uuid())
+  userId String
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name String
+  isDefault Boolean @default(false)
+  createdAt DateTime @default(now())
+  images ProfileImage[]
+  jobs TryOnJob[]
+  @@index([userId])
+}
+model ProfileImage {
+  id String @id @default(uuid())
+  profileId String
+  profile Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  slot String
+  key String @unique
+  width Int
+  height Int
+  createdAt DateTime @default(now())
+  @@unique([profileId, slot])
+}
+model TryOnJob {
+  id String @id @default(uuid())
+  userId String
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  profileId String
+  profile Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  imageId String
+  idempotencyKey String
+  requestHash String
+  category String
+  scene String @default("original")
+  status String @default("queued")
+  provider String
+  model String
+  providerId String?
+  editProviderId String?
+  submissionStarted Boolean @default(false)
+  editStarted Boolean @default(false)
+  originalKey String?
+  garmentKey String?
+  intermediateKey String?
+  errorCode String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  completedAt DateTime?
+  product ProductSnapshot?
+  result TryOnResult?
+  @@unique([userId, idempotencyKey])
+  @@index([status])
+}
+model ProductSnapshot {
+  id String @id @default(uuid())
+  jobId String @unique
+  job TryOnJob @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  data Json
+  selectedImage String
+  variant String?
+}
+model TryOnResult {
+  id String @id @default(uuid())
+  jobId String @unique
+  job TryOnJob @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  key String @unique
+  saved Boolean @default(false)
+  feedback String?
+  createdAt DateTime @default(now())
+}
+model ConsentRecord {
+  id String @id @default(uuid())
+  userId String
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  provider String
+  version String
+  createdAt DateTime @default(now())
+}
+model GarbageObject {
+  key String @id
+  createdAt DateTime @default(now())
+}

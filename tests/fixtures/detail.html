@@ -1,0 +1,50 @@
+<!doctype html><title>Organic cotton tee</title>
+<script type="application/ld+json">
+  [
+    { "@type": "WebPage" },
+    {
+      "@graph": [
+        {
+          "@type": "Product",
+          "name": "Organic cotton T-shirt",
+          "url": "/products/cotton-tee",
+          "brand": { "name": "Field" },
+          "image": ["/images/tee-blue.jpg", "/images/tee-blue.jpg"],
+          "offers": { "price": "32.00", "priceCurrency": "USD" },
+          "hasVariant": [
+            {
+              "@type": "Product",
+              "name": "Blue / M",
+              "color": "Blue",
+              "image": "/images/tee-blue.jpg"
+            },
+            {
+              "@type": "Product",
+              "name": "Green / M",
+              "color": "Green",
+              "image": "/images/tee-green.jpg"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+</script>
+<main>
+  <h1>Organic cotton T-shirt</h1>
+  <div class="gallery">
+    <picture
+      ><source srcset="/images/tee-large.webp 1200w" />
+      <img
+        src="/images/tee-thumb.jpg"
+        data-src="/images/tee-large.jpg"
+        width="800"
+        height="1000"
+        alt="Cotton tee"
+    /></picture>
+  </div>
+  <select name="option-color">
+    <option selected>Blue</option>
+    <option>Green</option>
+  </select>
+</main>

@@ -1,0 +1,85 @@
+{
+  "name": "tryon-studio",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "dev": "concurrently -k \"npm:dev:api\" \"npm:dev:worker\" \"npm:dev:extension\"",
+    "dev:api": "tsx watch apps/api/src/index.ts",
+    "dev:worker": "tsx watch apps/worker/src/index.ts",
+    "dev:extension": "vite --config apps/extension/vite.config.ts",
+    "build": "npm run db:generate && tsup apps/api/src/index.ts apps/worker/src/index.ts --format esm --out-dir dist/server --sourcemap && node scripts/build-extension.mjs",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:integration": "vitest run tests/integration.test.ts",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate deploy",
+    "db:setup": "npm run db:migrate && tsx scripts/storage-init.ts",
+    "infra": "docker compose up -d",
+    "package": "node scripts/package.mjs",
+    "check": "npm run typecheck && npm run lint && npm test && npm run build && npm run package",
+    "test:browser": "tsx scripts/browser-smoke.ts",
+    "test:live": "tsx scripts/live-audit.ts",
+    "format": "prettier --write apps packages scripts tests docs README.md"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.922.0",
+    "@prisma/client": "^6.19.0",
+    "bcryptjs": "^3.0.3",
+    "bullmq": "^5.61.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.2.1",
+    "helmet": "^8.1.0",
+    "ipaddr.js": "^2.2.0",
+    "multer": "^2.0.2",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "sharp": "^0.35.5",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.0",
+    "@playwright/test": "^1.56.1",
+    "@tailwindcss/vite": "^4.1.16",
+    "@types/chrome": "^0.1.24",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.5",
+    "@types/multer": "^2.0.0",
+    "@types/node": "^22.19.0",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "@types/supertest": "^6.0.3",
+    "@vitejs/plugin-react": "^5.1.0",
+    "concurrently": "^9.2.1",
+    "esbuild": "^0.25.12",
+    "eslint": "^9.39.0",
+    "globals": "^16.5.0",
+    "jsdom": "^26.1.0",
+    "prettier": "^3.9.9",
+    "prisma": "^6.19.0",
+    "supertest": "^7.1.4",
+    "tailwindcss": "^4.1.16",
+    "tsup": "^8.5.0",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.3",
+    "vite": "^7.2.2",
+    "vitest": "^4.1.11"
+  },
+  "overrides": {
+    "deepmerge-ts": "^8.0.0",
+    "tsup": {
+      "esbuild": "^0.28.1"
+    }
+  }
+}

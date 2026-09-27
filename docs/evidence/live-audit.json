@@ -1,0 +1,374 @@
+[
+  {
+    "site": "tentree",
+    "url": "https://www.tentree.com/products/valley-dress-jasper",
+    "kind": "detail",
+    "date": "2026-09-27T16:37:31.018Z",
+    "extensionId": "eomgogfljldlkplobcjaadooeejdioil",
+    "httpStatus": 200,
+    "finalUrl": "https://www.tentree.com/products/valley-dress-jasper",
+    "title": "Womens Valley Dress | Recycled Materials",
+    "diagnostics": [],
+    "extractionMethod": "Production extractor executed in live browser by test harness; toolbar activeTab gesture not automated",
+    "products": [
+      {
+        "title": "Womens Valley Dress | Recycled Materials",
+        "category": "dresses",
+        "method": "metadata",
+        "confidence": 0.4,
+        "url": "https://www.tentree.com/products/valley-dress-jasper",
+        "images": 20,
+        "variants": 5
+      },
+      {
+        "title": "White-Women_s-Short-sleeve-Mockneck *Model is 5'8\" wearing size S",
+        "category": "tops",
+        "method": "card",
+        "confidence": 0.7,
+        "url": "https://www.tentree.com/products/whitney-mockneck-cotton-white",
+        "images": 1,
+        "variants": 0
+      },
+      {
+        "title": "Red-Women_s-V-neck-Fleece-Dress *Model is 5'8\", wearing size S",
+        "category": "dresses",
+        "method": "card",
+        "confidence": 0.7,
+        "url": "https://www.tentree.com/products/vancouver-dress-red-chestnut",
+        "images": 1,
+        "variants": 0
+      },
+      {
+        "title": "Black-Women_s-Cropped-Mid-rise-Pant *Model is 5'8\", wearing size S/4",
+        "category": "pants",
+        "method": "card",
+        "confidence": 0.7,
+        "url": "https://www.tentree.com/products/breton-pant-meteorite-black",
+        "images": 1,
+        "variants": 0
+      },
+      {
+        "title": "Brown-Women_s-Insulated-Quilted-Vest *Model is 5'9\", wearing size S",
+        "category": "tops",
+        "method": "card",
+        "confidence": 0.7,
+        "url": "https://www.tentree.com/products/skyline-vest-ashwood",
+        "images": 1,
+        "variants": 0
+      }
+    ],
+    "count": 5,
+    "selectedImage": "https://cdn.shopify.com/s/files/1/2341/3995/files/TCW6233-4161-jasper-treeblend-tank-dress_2.jpg?v=1745961649",
+    "retrieval": {
+      "ok": true,
+      "width": 960,
+      "height": 1200
+    }
+  },
+  {
+    "site": "ASKET",
+    "url": "https://www.asket.com/en-us/mens-t-shirt-white",
+    "kind": "detail",
+    "date": "2026-09-27T16:37:38.193Z",
+    "extensionId": "eomgogfljldlkplobcjaadooeejdioil",
+    "httpStatus": 200,
+    "finalUrl": "https://www.asket.com/en-us/mens-t-shirt-white",
+    "title": "White T-Shirt | Premium Heavyweight Cotton Crewneck | Asket",
+    "diagnostics": [],
+    "extractionMethod": "Production extractor executed in live browser by test harness; toolbar activeTab gesture not automated",
+    "products": [
+      {
+        "title": "White T-Shirt | Premium Heavyweight Cotton Crewneck | Asket",
+        "category": "tops",
+        "method": "metadata",
+        "confidence": 0.4,
+        "url": "https://www.asket.com/en-us/mens-t-shirt-white",
+        "images": 40,
+        "variants": 0
+      },
+      {
+        "title": "The T-Shirt Grey Melange",
+        "category": "tops",
+        "method": "jsonld",
+        "confidence": 0.95,
+        "url": "https://www.asket.com/mens-t-shirt-grey-melange",
+        "images": 6,
+        "variants": 0
+      },
+      {
+        "title": "The T-Shirt Dark Navy",
+        "category": "tops",
+        "method": "jsonld",
+        "confidence": 0.95,
+        "url": "https://www.asket.com/mens-t-shirt-dark-navy",
+        "images": 6,
+        "variants": 0
+      },
+      {
+        "title": "The T-Shirt Black",
+        "category": "tops",
+        "method": "jsonld",
+        "confidence": 0.95,
+        "url": "https://www.asket.com/mens-t-shirt-black",
+        "images": 6,
+        "variants": 0
+      },
+      {
+        "title": "The T-Shirt Charcoal Melange",
+        "category": "tops",
+        "method": "jsonld",
+        "confidence": 0.95,
+        "url": "https://www.asket.com/mens-t-shirt-charcoal-melange",
+        "images": 5,
+        "variants": 0
+      },
+      {
+        "title": "The T-Shirt Dusty Green",
+        "category": "tops",
+        "method": "jsonld",
+        "confidence": 0.95,
+        "url": "https://www.asket.com/mens-t-shirt-dusty-green",
+        "images": 5,
+        "variants": 0
+      },
+      {
+        "title": "The T-Shirt Off White",
+        "category": "tops",
+        "method": "jsonld",
+        "confidence": 0.95,
+        "url": "https://www.asket.com/mens-t-shirt-off-white",
+        "images": 5,
+        "variants": 0
+      },
+      {
+        "title": "The Lightweight T-Shirt",
+        "category": "tops",
+        "method": "card",
+        "confidence": 0.7,
+        "url": "https://www.asket.com/en-us/mens-lightweight-t-shirt-white",
+        "images": 6,
+        "variants": 0
+      },
+      {
+        "title": "The Pique Polo",
+        "category": "tops",
+        "method": "card",
+        "confidence": 0.7,
+        "url": "https://www.asket.com/en-us/mens-pique-polo-white",
+        "images": 6,
+        "variants": 0
+      },
+      {
+        "title": "The Long Sleeve T-Shirt",
+        "category": "tops",
+        "method": "card",
+        "confidence": 0.7,
+        "url": "https://www.asket.com/en-us/mens-long-sleeve-t-shirt-grey-melange",
+        "images": 6,
+        "variants": 0
+      },
+      {
+        "title": "The Long Sleeve Pique Polo",
+        "category": "tops",
+        "method": "card",
+        "confidence": 0.7,
+        "url": "https://www.asket.com/en-us/mens-long-sleeve-pique-polo-dark-navy",
+        "images": 6,
+        "variants": 0
+      }
+    ],
+    "count": 11,
+    "selectedImage": "https://images.asket.com/product-images/2_EULJSHpuJK61X930-asket_tee-ma-whi_thumbnail-original.jpg?auto=format&q=80&w=1200&h=630",
+    "retrieval": {
+      "ok": true,
+      "width": 1200,
+      "height": 630
+    }
+  },
+  {
+    "site": "UNIQLO",
+    "url": "https://www.uniqlo.com/us/en/women/tops/t-shirts?colorDisplayCode=09",
+    "kind": "listing",
+    "date": "2026-09-27T16:37:42.310Z",
+    "extensionId": "eomgogfljldlkplobcjaadooeejdioil",
+    "httpStatus": 403,
+    "finalUrl": "https://www.uniqlo.com/us/en/women/tops/t-shirts?colorDisplayCode=09",
+    "title": "Access Denied",
+    "limitation": "Site access restriction encountered; no bypass attempted"
+  },
+  {
+    "site": "Everlane",
+    "url": "https://www.everlane.com/collections/womens-day-to-night-dresses",
+    "kind": "listing",
+    "date": "2026-09-27T16:39:44.684Z",
+    "extensionId": "eomgogfljldlkplobcjaadooeejdioil",
+    "httpStatus": 200,
+    "interaction": "Dismissed optional newsletter popup using No Thanks",
+    "finalUrl": "https://www.everlane.com/collections/womens-day-to-night-dresses",
+    "title": "Women’s Elevated Day to Night Dresses | Everlane (17 Products)",
+    "diagnostics": [],
+    "extractionMethod": "Production extractor executed in live browser by test harness; toolbar activeTab gesture not automated",
+    "products": [
+      {
+        "title": "Ponte V-Neck Mini Dress",
+        "category": "dresses",
+        "method": "card",
+        "confidence": 0.7,
+        "url": "https://www.everlane.com/products/womens-ponte-v-neck-mini-dress-graphite",
+        "images": 1,
+        "variants": 0
+      },
+      {
+        "title": "Halter Dress in Ultrasoft Cotton",
+        "category": "dresses",
+        "method": "card",
+        "confidence": 0.7,
+        "url": "https://www.everlane.com/products/womens-halter-dress-in-ultrasoft-cotton-birch",
+        "images": 1,
+        "variants": 0
+      },
+      {
+        "title": "Seamed Mini Dress",
+        "category": "dresses",
+        "method": "card",
+        "confidence": 0.7,
+        "url": "https://www.everlane.com/products/womens-seamed-mini-dress-peyote",
+        "images": 1,
+        "variants": 0
+      },
+      {
+        "title": "Halter Dress in Ultrasoft Cotton",
+        "category": "dresses",
+        "method": "card",
+        "confidence": 0.7,
+        "url": "https://www.everlane.com/products/womens-halter-dress-in-ultrasoft-cotton-navy",
+        "images": 1,
+        "variants": 0
+      },
+      {
+        "title": "Midi Dress in Cotton Silk Voile",
+        "category": "dresses",
+        "method": "card",
+        "confidence": 0.7,
+        "url": "https://www.everlane.com/products/womens-midi-dress-in-cotton-silk-voile-bone",
+        "images": 1,
+        "variants": 0
+      },
+      {
+        "title": "Midi Dress in Cotton Silk Voile",
+        "category": "dresses",
+        "method": "card",
+        "confidence": 0.7,
+        "url": "https://www.everlane.com/products/womens-midi-dress-in-cotton-silk-voile-black",
+        "images": 1,
+        "variants": 0
+      },
+      {
+        "title": "Tie-Neck Dress in Stretch Linen",
+        "category": "dresses",
+        "method": "card",
+        "confidence": 0.7,
+        "url": "https://www.everlane.com/products/womens-tie-neck-dress-in-stretch-linen-evergreen",
+        "images": 1,
+        "variants": 0
+      },
+      {
+        "title": "Halter Dress in Ultrasoft Cotton",
+        "category": "dresses",
+        "method": "card",
+        "confidence": 0.7,
+        "url": "https://www.everlane.com/products/womens-halter-dress-in-ultrasoft-cotton-pomegranate",
+        "images": 1,
+        "variants": 0
+      },
+      {
+        "title": "Tie-Neck Dress in Stretch Linen",
+        "category": "dresses",
+        "method": "card",
+        "confidence": 0.7,
+        "url": "https://www.everlane.com/products/womens-tie-neck-dress-in-stretch-linen-skywriting",
+        "images": 1,
+        "variants": 0
+      },
+      {
+        "title": "Midi Dress in Cotton Silk Voile",
+        "category": "dresses",
+        "method": "card",
+        "confidence": 0.7,
+        "url": "https://www.everlane.com/products/womens-midi-dress-in-cotton-silk-voile-passion-fruit",
+        "images": 1,
+        "variants": 0
+      },
+      {
+        "title": "Tie-Neck Dress in Stretch Linen",
+        "category": "dresses",
+        "method": "card",
+        "confidence": 0.7,
+        "url": "https://www.everlane.com/products/womens-tie-neck-dress-in-stretch-linen-henna-red",
+        "images": 1,
+        "variants": 0
+      },
+      {
+        "title": "Tie-Neck Dress in Stretch Linen",
+        "category": "dresses",
+        "method": "card",
+        "confidence": 0.7,
+        "url": "https://www.everlane.com/products/womens-tie-neck-dress-in-stretch-linen-estate-blue",
+        "images": 1,
+        "variants": 0
+      },
+      {
+        "title": "Tie-Neck Dress in Stretch Linen",
+        "category": "dresses",
+        "method": "card",
+        "confidence": 0.7,
+        "url": "https://www.everlane.com/products/womens-tie-neck-dress-in-stretch-linen-black",
+        "images": 1,
+        "variants": 0
+      },
+      {
+        "title": "Cowlneck Halter Dress in Butterknit",
+        "category": "dresses",
+        "method": "card",
+        "confidence": 0.7,
+        "url": "https://www.everlane.com/products/womens-cowlneck-halter-dress-butterknit-washed-navy",
+        "images": 1,
+        "variants": 0
+      },
+      {
+        "title": "Cowlneck Halter Dress in Butterknit",
+        "category": "dresses",
+        "method": "card",
+        "confidence": 0.7,
+        "url": "https://www.everlane.com/products/womens-cowlneck-halter-dress-butterknit-black",
+        "images": 1,
+        "variants": 0
+      },
+      {
+        "title": "Ponte V-Neck Mini Dress",
+        "category": "dresses",
+        "method": "card",
+        "confidence": 0.7,
+        "url": "https://www.everlane.com/products/womens-ponte-v-neck-mini-dress-black",
+        "images": 1,
+        "variants": 0
+      },
+      {
+        "title": "Cowlneck Halter Dress in Butterknit",
+        "category": "dresses",
+        "method": "card",
+        "confidence": 0.7,
+        "url": "https://www.everlane.com/products/womens-cowlneck-halter-dress-butterknit-washed-henna",
+        "images": 1,
+        "variants": 0
+      }
+    ],
+    "count": 17,
+    "selectedImage": "https://cdn.shopify.com/s/files/1/0623/7916/3734/files/5392a0aa_00c7_700x.jpg?v=1769648414",
+    "retrieval": {
+      "ok": true,
+      "width": 700,
+      "height": 875
+    }
+  }
+]

@@ -1,0 +1,17 @@
+{
+  "date": "2026-09-27T16:57:00.738Z",
+  "checks": [
+    "Installed MV3 panel loads and registration works",
+    "Profile creation and authenticated image upload",
+    "Mock banner is visible and incomplete job is disabled",
+    "Content script detects fixture; API, Redis worker and live public garment retrieval complete a labeled mock job",
+    "Result comparison, save, feedback and authenticated download work",
+    "Panel reopening recovers the persisted job",
+    "No script CSP violations with validator JIT disabled",
+    "Account deletion clears session and returns to sign-in",
+    "Expired or revoked sessions recover to sign-in without trapping the user",
+    "No extension page runtime errors"
+  ],
+  "provider": "mock",
+  "realGeneration": false
+}

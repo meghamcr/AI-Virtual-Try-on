@@ -1,0 +1,5 @@
+node_modules
+dist
+apps/extension/dist
+package-lock.json
+prisma/migrations
