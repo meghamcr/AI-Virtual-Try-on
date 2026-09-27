@@ -1,11 +1,11 @@
 # Five-minute examination demonstration
 
-This is a **script and recording checklist**, not a finished real-AI demonstration video. A valid recording needs a funded FASHN credential and suitable consented reference photographs. Automated screenshots use synthetic data and are not AI evidence.
+This is a **script and recording checklist**, not a finished real-AI demonstration video. A valid recording needs a funded Hugging Face IDM-VTON credential and suitable consented reference photographs. Automated screenshots use synthetic data and are not AI evidence.
 
 ## Recording prerequisites
 
 - Build and load the unpacked extension; pin its toolbar action.
-- API/worker running with `PROVIDER=fashn`; `/ready` returns 200. No demo banner.
+- API/worker running with `PROVIDER=huggingface`; `/ready` returns 200. No demo banner.
 - Prepare one clear, consented full-body photo usable for both a top and a dress. Keep keys and other private tabs out of the recording.
 - Verify two accessible shopping sites with different product categories immediately before recording. Do not record bypassing any access challenge.
 - Choose exact variant images; have credits for at least two try-ons. Keep Original setting selected.
@@ -30,8 +30,8 @@ Do not fill unknowns with guesses. `Generation time` includes queue and processi
 
 | Website / exact URL         | Category | Variant | Person photo    | Provider / model   | Measured time | Identity observation | Color / pattern / detail | Positioning | Outcome                   | Known issue                  |
 | --------------------------- | -------- | ------- | --------------- | ------------------ | ------------- | -------------------- | ------------------------ | ----------- | ------------------------- | ---------------------------- |
-| Pending consented real test | Tops     | Pending | Upper/full body | FASHN / tryon-v1.6 | Not measured  | Unverified           | Unverified               | Unverified  | Blocked: credential/photo | No real generation performed |
-| Pending consented real test | Dresses  | Pending | Full body       | FASHN / tryon-v1.6 | Not measured  | Unverified           | Unverified               | Unverified  | Blocked: credential/photo | No real generation performed |
+| Pending consented real test | Tops     | Pending | Upper/full body | Hugging Face IDM-VTON / tryon-v1.6 | Not measured  | Unverified           | Unverified               | Unverified  | Blocked: credential/photo | No real generation performed |
+| Pending consented real test | Dresses  | Pending | Full body       | Hugging Face IDM-VTON / tryon-v1.6 | Not measured  | Unverified           | Unverified               | Unverified  | Blocked: credential/photo | No real generation performed |
 
 ## Exact recording checklist
 
