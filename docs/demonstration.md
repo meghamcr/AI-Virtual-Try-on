@@ -1,14 +1,14 @@
 # Five-minute examination demonstration
 
-This is a **script and recording checklist**, not a finished real-AI demonstration video. A valid recording needs a funded Hugging Face IDM-VTON credential and suitable consented reference photographs. Automated screenshots use synthetic data and are not AI evidence.
+This is a **script and recording checklist**, not a finished real-AI demonstration video. A valid recording needs a free Hugging Face account token and suitable ZeroGPU quota and suitable consented reference photographs. Automated screenshots use synthetic data and are not AI evidence.
 
 ## Recording prerequisites
 
 - Build and load the unpacked extension; pin its toolbar action.
 - API/worker running with `PROVIDER=huggingface`; `/ready` returns 200. No demo banner.
-- Prepare one clear, consented full-body photo usable for both a top and a dress. Keep keys and other private tabs out of the recording.
+- Prepare one clear, consented upper-body or full-body photo for a top or shirt. Keep keys and other private tabs out of the recording.
 - Verify two accessible shopping sites with different product categories immediately before recording. Do not record bypassing any access challenge.
-- Choose exact variant images; have credits for at least two try-ons. Keep Original setting selected.
+- Choose exact variant images; confirm sufficient free ZeroGPU quota before recording. Keep Original setting selected.
 - Record the browser window and side panel with the OS recorder. Capture actual queued/generating/completed states; do not relabel a mock or splice an unrelated image into a result.
 - Fill the evaluation table with measured observations. If a generation takes longer than the nominal segment, extend the recording or visibly time-compress it with an accurate label.
 
@@ -30,8 +30,8 @@ Do not fill unknowns with guesses. `Generation time` includes queue and processi
 
 | Website / exact URL         | Category | Variant | Person photo    | Provider / model   | Measured time | Identity observation | Color / pattern / detail | Positioning | Outcome                   | Known issue                  |
 | --------------------------- | -------- | ------- | --------------- | ------------------ | ------------- | -------------------- | ------------------------ | ----------- | ------------------------- | ---------------------------- |
-| Pending consented real test | Tops     | Pending | Upper/full body | Hugging Face IDM-VTON / tryon-v1.6 | Not measured  | Unverified           | Unverified               | Unverified  | Blocked: credential/photo | No real generation performed |
-| Pending consented real test | Dresses  | Pending | Full body       | Hugging Face IDM-VTON / tryon-v1.6 | Not measured  | Unverified           | Unverified               | Unverified  | Blocked: credential/photo | No real generation performed |
+| Pending consented real test | Tops     | Pending | Upper/full body | Hugging Face / yisol/IDM-VTON | Not measured | Unverified | Unverified | Unverified | Pending API test | No programmatic generation performed |
+| Pending consented real test | Shirts   | Pending | Upper/full body | Hugging Face / yisol/IDM-VTON | Not measured | Unverified | Unverified | Unverified | Pending API test | No programmatic generation performed |
 
 ## Exact recording checklist
 
