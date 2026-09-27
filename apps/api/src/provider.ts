@@ -89,7 +89,7 @@ export class HuggingFaceProvider implements Provider {
 
   private async upload(bytes: Buffer, name: string): Promise<FileData> {
     const form = new FormData();
-    form.append("files", new Blob([bytes], { type: "image/jpeg" }), name);
+    form.append("files", new Blob([Uint8Array.from(bytes).buffer], { type: "image/jpeg" }), name);
     let response: Response | undefined;
     for (const path of ["/gradio_api/upload", "/upload"]) {
       try {
