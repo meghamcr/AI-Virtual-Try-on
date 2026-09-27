@@ -13,16 +13,15 @@ import {
   normalizeImage,
 } from "../apps/api/src/images";
 import {
-  FashnProvider,
+  HuggingFaceProvider,
   normalizeProviderError,
 } from "../apps/api/src/provider";
-import { env } from "../apps/api/src/config";
 afterEach(() => vi.restoreAllMocks());
 describe("validation and category registry", () => {
   it("requires only the relevant photo", () => {
     expect(readiness("tops", ["upper"]).ready).toBe(true);
     expect(readiness("dresses", ["upper"]).ready).toBe(false);
-    expect(readiness("dresses", ["full"]).ready).toBe(true);
+    expect(readiness("dresses", ["full"]).ready).toBe(false);
     expect(readiness("shoes", ["feet"]).ready).toBe(false);
   });
   it("rejects invalid jobs and weak account passwords", () => {
@@ -103,40 +102,17 @@ describe("provider contract", () => {
       retryable: false,
     });
   });
-  it("uses documented model and person-plus-garment input", async () => {
-    env.FASHN_API_KEY = "test-key";
-    const mock = vi
-      .spyOn(globalThis, "fetch")
-      .mockResolvedValue(
-        new Response(JSON.stringify({ id: "prediction" }), { status: 200 }),
-      );
-    const p = new FashnProvider();
-    expect(
-      await p.submitTryOn(
-        Buffer.from("person"),
-        Buffer.from("dress"),
-        "dresses",
-      ),
-    ).toBe("prediction");
-    const body = JSON.parse(mock.mock.calls[0][1]!.body as string);
-    expect(body.model_name).toBe("tryon-v1.6");
-    expect(body.inputs.category).toBe("one-pieces");
-    expect(body.inputs.model_image).toContain("data:image/jpeg");
-    expect(body.inputs.garment_image).toContain("data:image/jpeg");
-    expect(body.inputs.return_base64).toBe(true);
-  });
-  it("never retries an ambiguous paid submission", async () => {
-    env.FASHN_API_KEY = "test-key";
-    const mock = vi
-      .spyOn(globalThis, "fetch")
-      .mockRejectedValue(Error("Timeout"));
-    await expect(
-      new FashnProvider().submitTryOn(
-        Buffer.from("p"),
-        Buffer.from("g"),
-        "tops",
-      ),
-    ).rejects.toMatchObject({ code: "SUBMISSION_UNCERTAIN", retryable: false });
-    expect(mock).toHaveBeenCalledTimes(1);
+  it("exposes only the verified IDM-VTON upper-body categories", () => {
+    const p = new HuggingFaceProvider();
+    expect(p.getCapabilities()).toMatchObject({
+      name: "huggingface",
+      model: "yisol/IDM-VTON",
+      categories: ["tops", "shirts"],
+      lifestyle: false,
+    });
+    expect(() => p.validateInput("tops")).not.toThrow();
+    expect(() => p.validateInput("shirts")).not.toThrow();
+    expect(() => p.validateInput("dresses")).toThrow("CATEGORY_UNSUPPORTED");
+    expect(() => p.validateInput("pants")).toThrow("CATEGORY_UNSUPPORTED");
   });
 });

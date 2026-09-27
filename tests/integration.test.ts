@@ -83,18 +83,18 @@ describe.skipIf(!enabled)(
       ).key;
       body = {
         profileId,
-        category: "dresses",
+        category: "tops",
         scene: "original",
         consent: true,
         idempotencyKey: randomUUID(),
-        selectedImage: "https://shop.example/dress.jpg",
+        selectedImage: "https://shop.example/top.jpg",
         product: {
           id: "p1",
           source: "https://shop.example/dress",
           url: "https://shop.example/dress",
           title: "Blue dress",
-          category: "dresses",
-          images: [{ url: "https://shop.example/dress.jpg", score: 10 }],
+          category: "tops",
+          images: [{ url: "https://shop.example/top.jpg", score: 10 }],
           variants: [],
           method: "jsonld",
           confidence: 0.9,
@@ -235,16 +235,16 @@ describe.skipIf(!enabled)(
       await db.tryOnJob.update({
         where: { id: a.body.id },
         data: {
-          provider: "fashn",
+          provider: "huggingface",
           providerId: "persisted-id",
           submissionStarted: true,
           status: "submitted",
         },
       });
       const caps = vi.spyOn(provider, "getCapabilities").mockReturnValue({
-          name: "fashn",
-          model: "tryon-v1.6",
-          categories: ["dresses"],
+          name: "huggingface",
+          model: "yisol/IDM-VTON",
+          categories: ["tops", "shirts"],
           cancel: false,
           lifestyle: false,
         }),
@@ -285,15 +285,15 @@ describe.skipIf(!enabled)(
       await db.tryOnJob.update({
         where: { id: a.body.id },
         data: {
-          provider: "fashn",
+          provider: "huggingface",
           submissionStarted: true,
           status: "submitted",
         },
       });
       const caps = vi.spyOn(provider, "getCapabilities").mockReturnValue({
-          name: "fashn",
-          model: "tryon-v1.6",
-          categories: ["dresses"],
+          name: "huggingface",
+          model: "yisol/IDM-VTON",
+          categories: ["tops", "shirts"],
           cancel: false,
           lifestyle: false,
         }),

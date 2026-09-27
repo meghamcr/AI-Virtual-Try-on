@@ -13,8 +13,8 @@ flowchart LR
   Queue --> Worker[Generation worker]
   Worker --> PG
   Worker --> S3
-  Worker -->|Data URI inputs, backend key| FASHN[FASHN API]
-  FASHN -->|Prediction ID / polled output| Worker
+  Worker -->|Private image uploads, backend token| HF[Hugging Face IDM-VTON Space]
+  HF -->|Gradio event ID / generated output| Worker
 ```
 
 ```mermaid

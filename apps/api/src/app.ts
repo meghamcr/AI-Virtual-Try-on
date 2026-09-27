@@ -89,7 +89,7 @@ app.get(
         queue.getJobCounts(),
         storageReady(),
       ]);
-      const configured = env.PROVIDER === "mock" || !!env.FASHN_API_KEY;
+      const configured = env.PROVIDER === "mock" || !!env.HF_TOKEN;
       const heartbeat = await (
         await queue.client
       ).get("tryon:worker:heartbeat");
@@ -110,8 +110,8 @@ app.get(
 app.get("/capabilities", (_req, res) =>
   res.json({
     ...provider.getCapabilities(),
-    configured: env.PROVIDER === "mock" || !!env.FASHN_API_KEY,
-    consentVersion: "2026-09-27",
+    configured: env.PROVIDER === "mock" || !!env.HF_TOKEN,
+    consentVersion: "2026-09-27-huggingface-idm-vton",
   }),
 );
 const authLimit = rateLimit({ windowMs: 15 * 60000, limit: 20 });

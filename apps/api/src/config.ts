@@ -14,8 +14,9 @@ export const env = z
     S3_ACCESS_KEY: z.string().default("tryon_local"),
     S3_SECRET_KEY: z.string().default("tryon_local_secret_change_me"),
     CORS_ORIGINS: z.string().default("http://localhost:5173"),
-    PROVIDER: z.enum(["fashn", "mock"]).default("fashn"),
-    FASHN_API_KEY: z.string().optional(),
+    PROVIDER: z.enum(["huggingface", "mock"]).default("huggingface"),
+    HF_TOKEN: z.string().optional(),
+    HF_SPACE_URL: z.string().url().default("https://yisol-idm-vton.hf.space"),
     ENABLE_LIFESTYLE: z.string().default("false"),
     TRUST_PROXY: z.coerce.number().default(0),
   })
@@ -23,7 +24,7 @@ export const env = z
 if (
   env.NODE_ENV === "production" &&
   (env.PROVIDER === "mock" ||
-    !env.FASHN_API_KEY ||
+    !env.HF_TOKEN ||
     env.S3_SECRET_KEY.includes("change_me") ||
     env.S3_ENDPOINT.startsWith("http:"))
 )

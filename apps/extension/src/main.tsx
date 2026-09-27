@@ -863,7 +863,7 @@ function App() {
                     the product image to{" "}
                     {caps?.name === "mock"
                       ? "the local demo processor"
-                      : "FASHN"}{" "}
+                      : "Hugging Face IDM-VTON"}{" "}
                     for this preview.
                   </label>
                   <button
@@ -890,8 +890,8 @@ function App() {
                   </button>
                   {!caps?.configured && (
                     <p className="warning">
-                      Real generation needs a configured provider key. Check
-                      Settings.
+                      Real generation needs backend Hugging Face access. Add
+                      HF_TOKEN to the backend .env, then restart API and worker.
                     </p>
                   )}
                   <p className="fine center">
@@ -1271,19 +1271,20 @@ function App() {
                     retrieve them.
                   </p>
                   <p>
-                    FASHN receives the selected person and garment images when
-                    you consent to a generation. Lifestyle scenes add a second
-                    edit. TryOn Studio does not train models on your photos.
+                    Hugging Face's IDM-VTON Space receives the selected person
+                    and garment images only after you consent. Automatic masking
+                    is enabled for upper-body try-on. TryOn Studio does not use
+                    your photos to train its own models.
                   </p>
                   <p className="fine">
-                    FASHN documents temporary input processing, a 60-minute
-                    base64 output window and request records without automatic
-                    expiry. External deletion is handled through the provider;
-                    cancelling here does not cancel a paid request already
-                    submitted.
+                    The public Space is a third-party service with queue and
+                    ZeroGPU quota limits. Its temporary processing and retention
+                    are controlled by Hugging Face and the Space owner. Deleting
+                    a local result removes TryOn Studio's stored copy, not data
+                    already processed by the external Space.
                   </p>
                   <a
-                    href="https://docs.fashn.ai/api-overview/data-retention-privacy"
+                    href="https://huggingface.co/privacy"
                     target="_blank"
                     rel="noreferrer"
                   >

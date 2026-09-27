@@ -1,35 +1,30 @@
-# Real provider adapter
+# Real provider adapter — Hugging Face IDM-VTON
 
-Research date: 2026-09-27. Sources are official documentation, not inferred SDK structures.
+TryOn Studio uses the public `yisol/IDM-VTON` Hugging Face Space through its Gradio API. The adapter uploads the normalized person and garment images from the backend, then calls the named `/tryon` endpoint with automatic masking enabled.
 
-| Contract     | Implementation                                                                       |
-| ------------ | ------------------------------------------------------------------------------------ |
-| Endpoint     | `POST https://api.fashn.ai/v1/run`, Bearer key                                       |
-| Try-on model | `tryon-v1.6`                                                                         |
-| Conditioning | Exactly one `model_image` and one `garment_image`, as JPEG data URIs                 |
-| Category     | `tops`, `bottoms`, `one-pieces`; explicit mapping in registry                        |
-| Settings     | balanced, conservative moderation, one sample, JPEG, base64 output                   |
-| Submission   | Returned prediction `id` stored before status polling                                |
-| Status       | `GET /v1/status/{id}`; starting, in_queue, processing, completed, failed             |
-| Output       | First returned output, validated and stored privately                                |
-| Cancellation | No implemented remote cancellation; local cancellation suppresses publication        |
-| Lifestyle    | Optional second `edit` prediction with fixed scene instruction and the try-on output |
+## Verified contract
 
-Official [try-on contract](https://docs.fashn.ai/api-reference/tryon-v1-6) documents image-based garment transfer and the category choices used here. Tops/shirts/jackets map to tops, trousers to bottoms, dresses to one-pieces. The adapter does not send web descriptions as prompts. It does not submit extra reference slots, masks, segmentation, or invented body measurements. Image preparation bounds the longest edge at 1600 pixels; the provider documents internal processing at 864 × 1296. Capture guidance is a practical recommendation, not an implemented pose detector.
+The official Space code defines `start_tryon(dict, garm_img, garment_des, is_checked, is_checked_crop, denoise_steps, seed)` and exposes it as `api_name='tryon'`. Automatic masking uses the Space's `upper_body` mask. The first returned image is the generated try-on and the second is the mask preview.
 
-[API Fundamentals](https://docs.fashn.ai/api-overview/api-fundamentals) establishes asynchronous polling and error structures. Runtime failure becomes `GENERATION_REJECTED`; raw provider responses and input data are never logged or returned as errors. Only status reads have automatic retries. Provider authentication, rate-limit and unavailable errors are normalized. Ambiguous submissions require manual reconciliation.
+The initial adapter therefore enables only **T-shirts/tops and shirts**. Dresses, jackets, pants, shoes, jewellery, necklaces and accessories remain disabled until separately verified with an appropriate adapter.
 
-[Lifestyle Edit](https://docs.fashn.ai/api-reference/edit) is an experimental model. Enable with `ENABLE_LIFESTYLE=true`. It receives the try-on result and a server-owned prompt for studio, outdoors, beach, or city; request settings are `resolution: 1k`, `generation_mode: fast`, one JPEG base64 output. This is a separate charge. No strict mask is applied, so the UI warns of additional visual variation. Original setting is default. Identity, logos and product fidelity are requested, never guaranteed.
+The backend uses the Gradio upload and queue-based call endpoints. `HF_TOKEN` is optional for a public Space but recommended so requests use the signed-in Hugging Face account's ZeroGPU quota. The token is backend-only and must never be bundled into the extension.
 
-[Provider retention](https://docs.fashn.ai/api-overview/data-retention-privacy) states that base64 inputs have temporary processing copies with a one-day cleanup backstop, base64 outputs remain accessible for 60 minutes, and request records are not automatically deleted. The provider documents no training use unless separately opted in. No such opt-in is made by this application. Request-record deletion currently requires contacting the provider; no deletion endpoint is claimed.
+## Runtime behavior
 
-## Credential-dependent validation
+1. Set `PROVIDER=huggingface`.
+2. Set `HF_TOKEN` to a Hugging Face read token if authenticated quota is desired.
+3. Keep `HF_SPACE_URL=https://yisol-idm-vton.hf.space` unless intentionally testing a compatible duplicate.
+4. Restart both API and worker.
+5. Check `GET /ready` and `GET /capabilities`.
+6. Test a consented upper-body photo with a T-shirt or shirt.
 
-1. Set `PROVIDER=fashn`, `FASHN_API_KEY` with available credits in `.env`; restart API and worker.
-2. Check `/capabilities` and `/ready`; `configured: true` only checks credential presence, not validity/credits.
-3. Use a consenting adult's appropriate full-body photograph; do not use a synthetic square as evidence of person generation.
-4. On a real shopping page, select a top and its exact color image. Generate in Original setting. Confirm a genuine completed prediction and inspect the output.
-5. Reuse the full-body profile on a second website for a dress. Record actual timings and observations in the evaluation table.
-6. Test optional lifestyle separately, preserving the initial original-setting evidence.
+The public ZeroGPU Space can queue, rate-limit, reject a request when quota is exhausted, sleep, or become temporarily unavailable. TryOn Studio reports these conditions; it does not bypass quotas and does not silently fall back to FASHN or mock generation.
 
-No real provider generation is asserted until those checks have been performed. Mock test images and watermarked mock previews are not evidence of AI quality.
+Lifestyle/background editing is not supported by this adapter. Keep `ENABLE_LIFESTYLE=false`.
+
+## Privacy
+
+Person and garment images are sent to the configured third-party Hugging Face Space only after explicit generation consent. Local deletion removes TryOn Studio's stored copies but cannot promise deletion from external infrastructure. Review Hugging Face privacy/terms and the Space's own repository before public deployment.
+
+No real-provider quality claim should be made from mocked tests. A real consented generation is still required to validate API availability, latency, and output quality for the current Space version.
