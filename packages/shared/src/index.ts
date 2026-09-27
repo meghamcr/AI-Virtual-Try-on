@@ -47,7 +47,7 @@ const category = (
   modelCategory,
   guidance,
   imageTypes: ["flat-lay", "model", "auto"],
-  providers: modelCategory ? ["fashn/tryon-v1.6"] : [],
+  providers: modelCategory ? ["huggingface/yisol/IDM-VTON"] : [],
   preprocessing:
     "Orient, remove metadata, normalize JPEG, bound longest edge to 1600px",
   settings: { mode: "balanced" },
