@@ -15,7 +15,8 @@ export const env = z
     S3_SECRET_KEY: z.string().default("tryon_local_secret_change_me"),
     CORS_ORIGINS: z.string().default("http://localhost:5173"),
     PROVIDER: z.enum(["huggingface", "mock"]).default("huggingface"),
-    HF_TOKEN: z.string().optional(),\n    HF_SPACE_URL: z.string().url().default("https://yisol-idm-vton.hf.space"),
+    HF_TOKEN: z.string().optional(),
+    HF_SPACE_URL: z.string().url().default("https://yisol-idm-vton.hf.space"),
     ENABLE_LIFESTYLE: z.string().default("false"),
     TRUST_PROXY: z.coerce.number().default(0),
   })
