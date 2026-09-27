@@ -890,8 +890,8 @@ function App() {
                   </button>
                   {!caps?.configured && (
                     <p className="warning">
-                      Real generation needs a configured provider key. Check
-                      Settings.
+                      Real generation needs backend Hugging Face access. Add
+                      HF_TOKEN to the backend .env, then restart API and worker.
                     </p>
                   )}
                   <p className="fine center">
