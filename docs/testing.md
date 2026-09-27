@@ -41,7 +41,7 @@ Live tests exposed and led to fixes for: Node 22 DNS callback shape, metadata de
 
 ## Real generation and remaining checks
 
-**Not performed:** funded FASHN generation using a consented person photo, identity/product fidelity assessment, lifestyle output evaluation, measured real model latency, and a finished real-AI examination recording. No provider credential or suitable reference photograph was supplied. Provider schema tests use mocked HTTP responses and are not evidence that an account has access, credits, or successful outputs.
+**Not performed:** funded Hugging Face IDM-VTON generation using a consented person photo, identity/product fidelity assessment, lifestyle output evaluation, measured real model latency, and a finished real-AI examination recording. No provider credential or suitable reference photograph was supplied. Provider schema tests use mocked HTTP responses and are not evidence that an account has access, credits, or successful outputs.
 
 Native Chrome checks to perform before the examination:
 
