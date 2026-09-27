@@ -2,9 +2,9 @@
 
 Personal photographs and generated results are sensitive. TryOn Studio stores them in a private S3-compatible bucket, with access mediated by an authenticated API. SQL stores object keys and metadata. There are no public bucket policies or personal-image URLs in extension storage. The extension stores its opaque login token and product draft in trusted extension-local storage; per-tab product metadata is ephemeral session storage. Logout/account deletion clears extension storage.
 
-The selected personal image and downloaded garment are sent as base64 data through the backend to FASHN only after the user checks generation consent. Extra profile references are not sent. The app never sends shopping cookies, session tokens, or page HTML to the provider. Original setting uses the try-on model; optional lifestyle processing sends its output for a separate edit. Product titles/descriptions are displayed with React text escaping and never inserted into model instructions.
+The selected personal image and downloaded garment are sent as base64 data through the backend to Hugging Face IDM-VTON only after the user checks generation consent. Extra profile references are not sent. The app never sends shopping cookies, session tokens, or page HTML to the provider. Original setting uses the try-on model; optional lifestyle processing sends its output for a separate edit. Product titles/descriptions are displayed with React text escaping and never inserted into model instructions.
 
-We do not use photographs for training. Provider terms and account settings still apply: read the [FASHN retention policy](https://docs.fashn.ai/api-overview/data-retention-privacy) and [provider integration notes](provider.md). Do not promise immediate erasure from provider systems or infrastructure backups. The operator must disclose its storage region and backup-retention policy before a public deployment.
+We do not use photographs for training. Provider terms and account settings still apply: read the [Hugging Face IDM-VTON retention policy](https://docs.fashn.ai/api-overview/data-retention-privacy) and [provider integration notes](provider.md). Do not promise immediate erasure from provider systems or infrastructure backups. The operator must disclose its storage region and backup-retention policy before a public deployment.
 
 ## Deletion behavior
 
@@ -16,7 +16,7 @@ We do not use photographs for training. Provider terms and account settings stil
 
 All file deletion uses a durable database garbage outbox. The worker normally removes bytes after a two-minute safety delay plus its next 15-second sweep. Storage outages extend this interval; entries remain until deletion succeeds. Run the worker until the outbox is empty. Media authorization is revoked immediately even if physical cleanup is pending. In-flight publication and deletion serialize on the same owner lock; workers recheck live records and never recreate a deleted profile/account/job.
 
-FASHN has no request-record deletion endpoint documented in the researched contract. The operator can retain prediction IDs in a restricted operational request while arranging provider deletion through its published contact. Do this **before** deleting local job metadata if provider record deletion is required. Local cancellation cannot guarantee cancellation or refund of already-submitted work.
+Hugging Face IDM-VTON has no request-record deletion endpoint documented in the researched contract. The operator can retain prediction IDs in a restricted operational request while arranging provider deletion through its published contact. Do this **before** deleting local job metadata if provider record deletion is required. Local cancellation cannot guarantee cancellation or refund of already-submitted work.
 
 ## Security implementation
 
