@@ -42,7 +42,8 @@ Build outputs: `apps/extension/dist/` (unpacked) and `dist/tryon-studio-extensio
 | `S3_ENDPOINT`, `S3_REGION`, `S3_BUCKET` | Private S3-compatible storage                                        |
 | `S3_ACCESS_KEY`, `S3_SECRET_KEY`        | Backend-only storage credentials                                     |
 | `PROVIDER`                              | `huggingface` (default) or explicitly `mock` in development          |
-| `HF_TOKEN`                              | Backend-only Hugging Face token; recommended for free ZeroGPU quota  |\n| `HF_SPACE_URL`                          | IDM-VTON Space URL; defaults to the official yisol Space             |
+| `HF_TOKEN`                              | Backend-only Hugging Face token; recommended for free ZeroGPU quota  |
+| `HF_SPACE_URL`                          | IDM-VTON Space URL; defaults to the official yisol Space             |
 | `ENABLE_LIFESTYLE`                      | Keep `false`; lifestyle editing is not supported by this adapter     |
 | `CORS_ORIGINS`                          | Exact comma-separated origins, including the unpacked extension ID   |
 | `VITE_API_URL`                          | Build-time API URL; remote URLs must use HTTPS                       |
