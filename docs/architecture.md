@@ -13,8 +13,8 @@ flowchart LR
   Queue --> Worker[Generation worker]
   Worker --> PG
   Worker --> S3
-  Worker -->|Data URI inputs, backend key| FASHN[FASHN API]
-  FASHN -->|Prediction ID / polled output| Worker
+  Worker -->|Data URI inputs, backend key| Hugging Face IDM-VTON[Hugging Face IDM-VTON API]
+  Hugging Face IDM-VTON -->|Prediction ID / polled output| Worker
 ```
 
 ```mermaid
