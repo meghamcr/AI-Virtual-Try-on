@@ -22,12 +22,12 @@ export function normalizeProviderError(status: number) {
   );
 }
 
-const statusSchema = z.object({
-  id: z.string(),
-  status: z.enum(["starting", "in_queue", "processing", "completed", "failed"]),
-  output: z.array(z.string()).optional(),
-  error: z.unknown().optional(),
-});
+type ProviderStatus = {
+  id: string;
+  status: "starting" | "in_queue" | "processing" | "completed" | "failed";
+  output?: string[];
+  error?: unknown;
+};
 
 export interface Provider {
   getCapabilities(): {
@@ -39,7 +39,7 @@ export interface Provider {
   };
   validateInput(category: CategoryId): void;
   submitTryOn(person: Buffer, garment: Buffer, category: CategoryId): Promise<string>;
-  getJobStatus(id: string): Promise<z.infer<typeof statusSchema>>;
+  getJobStatus(id: string): Promise<ProviderStatus>;
   normalizeOutput(output: string): Promise<Buffer>;
   submitScene(image: Buffer, scene: string): Promise<string>;
 }
