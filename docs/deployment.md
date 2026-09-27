@@ -13,7 +13,7 @@ MinIO's community Docker Hub image was unavailable during implementation. `infra
 Do not publish the extension or provision paid services without explicit authorization. Deployment instructions below are for an operator to apply deliberately.
 
 1. Use maintained managed PostgreSQL, Redis with persistence and `noeviction`, and private S3-compatible storage. Put DB/Redis on private networks.
-2. Store secrets in the platform's secret manager. Set `NODE_ENV=production`, `PROVIDER=huggingface`, a valid `Hugging Face IDM-VTON_API_KEY`, non-default S3 credentials and an HTTPS S3 endpoint. Use a least-privilege bucket account, not an object-store root credential.
+2. Store secrets in the platform's secret manager. Set `NODE_ENV=production`, `PROVIDER=huggingface`, a valid backend-only `HF_TOKEN`, non-default S3 credentials and an HTTPS S3 endpoint. Use a least-privilege bucket account, not an object-store root credential.
 3. Run `npm ci`, `npm run db:generate`, `npm run db:migrate`, and `npm run build` in deployment. Provision/validate the private bucket separately or run `tsx scripts/storage-init.ts` with bucket creation privileges once.
 4. Start `node dist/server/api/src/index.js` and `node dist/server/worker/src/index.js` as independently supervised processes. Include `node_modules` and Prisma's generated engine. Use a process supervisor or container orchestrator with graceful shutdown. The compiled server bundles keep dependencies external.
 5. Expose the API only through an HTTPS reverse proxy; block direct public access to its HTTP port. Configure upload limits at least 12 MB, request timeouts over 30 seconds, and an accurate `TRUST_PROXY` hop count. Avoid logging Authorization, request bodies, image bytes or signed URLs.
